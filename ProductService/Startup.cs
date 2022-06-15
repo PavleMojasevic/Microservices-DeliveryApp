@@ -109,7 +109,7 @@ namespace ProductService
             {
                 options.AddPolicy(name: _cors, builder =>
                 {
-                    builder.WithOrigins("http://localhost:4200", "https://localhost:44381")
+                    builder.WithOrigins(/*"http://localhost:4200",*/ "https://localhost:44381")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();

@@ -39,24 +39,11 @@ namespace ProductService.Controllers
                 return BadRequest();
             }
         }
-
-        // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        [Authorize(Policy = "ImaToken")]
-        public ActionResult Get(int id)
-        {
-            var result = orderService.FindById(id);
-            if (result != null) { 
-                return Ok(result);
-            }
-            else
-            {
-                return NotFound();
-            }
-        }
+         
+       
         // POST api/<ProductController>
         [HttpPost]
-        [Authorize(Policy = "ImaToken")]
+        [Authorize]
         public ActionResult Post([FromBody] OrderDto order)
         {
             foreach (var item in order.OrderParts)
@@ -67,17 +54,7 @@ namespace ProductService.Controllers
             orderService.AddEntity(order);
             return Ok(true);
         }
-        [HttpGet("user/{userid}")]
-        [Authorize(Policy = "ImaToken")]
-        public ActionResult GetByUser(int userid)
-        {
-            var result = orderService.GetUsersOrders(userid);
-            if (result == null)
-            {
-                return BadRequest();
-            }
-            return Ok(result);
-        }
+        
         [HttpGet("Undelivered")]
         [Authorize(Roles = "Dostavljac")]
         public ActionResult Undelivered()
@@ -89,7 +66,7 @@ namespace ProductService.Controllers
             }
             return Ok(result);
         }
-        [HttpPut("TakeOrder")]
+        [HttpPost("TakeOrder")]
         [Authorize(Roles = "Dostavljac")]
         public ActionResult TakeOrder([FromBody] long orderid)
         {
@@ -104,7 +81,6 @@ namespace ProductService.Controllers
 
         }
         [HttpGet("history")]
-        [Authorize(Policy = "ImaToken")]
         [Authorize(Roles = "Korisnik")]
         public ActionResult History()
         {

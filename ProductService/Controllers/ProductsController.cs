@@ -33,21 +33,7 @@ namespace ProductService.Controllers
                 return BadRequest();
             }
         }
-
-        // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        [Authorize(Policy = "ImaToken")]
-        public ActionResult Get(int id)
-        {
-            try
-            {
-                return Ok(productService.FindById(id));
-            }
-            catch 
-            {
-                return BadRequest();
-            }
-        }
+         
         // POST api/<ProductController>
         [HttpPost] 
         [Authorize(Roles = "Admin")]
@@ -59,26 +45,7 @@ namespace ProductService.Controllers
 
             return BadRequest(false);
         }
-
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Put(int id, [FromBody] ProductDto product)
-        {
-            if (productService.ModifyEntity(product, id))
-                return Ok();
-            return BadRequest();
-        }
-
-        // DELETE api/<ProductController>/5
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Delete(int id)
-        {
-            if (productService.RemoveEntity(id))
-                return Ok(); 
-            return BadRequest();
-
-        }
+         
+         
     }
 }

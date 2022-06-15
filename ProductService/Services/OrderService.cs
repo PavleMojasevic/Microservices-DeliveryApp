@@ -16,6 +16,7 @@ namespace ProductService.Services
     {
         private readonly IMapper _mapper;
         private readonly ProductsDbContext _dbContext;
+        private static readonly Object thisLock = new Object();
 
         public OrderService(IMapper mapper, ProductsDbContext dbContext)
         {
@@ -91,17 +92,20 @@ namespace ProductService.Services
         Random random = new Random();
         public bool TakeOrder(long orderid, long userId)
         {
-            List<Order> orders = (List<Order>)_dbContext.Orders.Where(x => x.DateTimeOfDelivery > DateTime.Now).Where(x => x.DeliveredBy == userId).ToList();
-            if (orders.Count == 0)
+            lock (thisLock)
             {
-                Order order = _dbContext.Orders.Find(orderid);
-                order.State = State.DELIVERED;
-                order.DeliveredBy = userId;
-                order.DateTimeOfDelivery = DateTime.Now.AddMinutes(random.Next(5,30));
-                _dbContext.SaveChanges();
-                return true;
+                List<Order> orders = (List<Order>)_dbContext.Orders.Where(x => x.DateTimeOfDelivery > DateTime.Now).Where(x => x.DeliveredBy == userId).ToList();
+                if (orders.Count == 0)
+                {
+                    Order order = _dbContext.Orders.Find(orderid);
+                    order.State = State.DELIVERED;
+                    order.DeliveredBy = userId;
+                    order.DateTimeOfDelivery = DateTime.Now.AddMinutes(random.Next(5, 30));
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-            return false;
         }
 
         public List<OrderDto> History(long userid)
