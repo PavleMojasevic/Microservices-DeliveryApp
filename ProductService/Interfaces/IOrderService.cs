@@ -16,5 +16,6 @@ namespace ProductService.Interfaces
         bool TakeOrder(long orderid, long userId);
         List<OrderDto> History(long userid);
         List<OrderDto> HistoryDeliverer(long userid);
+        OrderDto GetCurrentOrder(long userid);
     }
 }

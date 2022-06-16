@@ -106,6 +106,18 @@ namespace ProductService.Controllers
             return BadRequest(); 
 
         }
+        [HttpGet("currentOrder")]
+        [Authorize]
+        public ActionResult GetCurrentOrder()
+        {
+            List<Claim> claims = User.Claims.ToList();
+            foreach (var item in claims)
+            {
+                if (item.Type.ToLower() == "id")
+                    return Ok(orderService.GetCurrentOrder(Convert.ToInt64(item.Value)));
+            }
+            return BadRequest();
+        }
 
     }
 }

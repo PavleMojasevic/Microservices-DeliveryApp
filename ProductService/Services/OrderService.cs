@@ -95,7 +95,8 @@ namespace ProductService.Services
             lock (thisLock)
             {
                 List<Order> orders = (List<Order>)_dbContext.Orders.Where(x => x.DateTimeOfDelivery > DateTime.Now).Where(x => x.DeliveredBy == userId).ToList();
-                if (orders.Count == 0)
+                List<Order> orders2 = (List<Order>)_dbContext.Orders.Where(x => x.OrderId ==orderid).Where(x => x.State == State.DELIVERED).ToList();
+                if (orders.Count == 0 && orders2.Count==0)
                 {
                     Order order = _dbContext.Orders.Find(orderid);
                     order.State = State.DELIVERED;
@@ -132,6 +133,13 @@ namespace ProductService.Services
                 }
             }
             return ret;
+        }
+        public OrderDto GetCurrentOrder(long userid)
+        {
+            var order = _dbContext.Orders.Where(x => x.UserId == userid || x.DeliveredBy == userid).Where(x=>x.DateTimeOfDelivery>DateTime.Now).Include(x => x.OrderParts).ThenInclude(c => c.Product).ToList();
+            if (order.Count == 0)
+                return null;
+            return _mapper.Map<OrderDto>(order[0]);
         }
     }
 }
