@@ -81,7 +81,7 @@ namespace ProductService
                  ValidateAudience = false, //Kazemo da ne validira primaoce tokena
                  ValidateLifetime = true,//Validira trajanje tokena
                  ValidateIssuerSigningKey = true, //validira potpis token, ovo je jako vazno!
-                 ValidIssuer = "https://localhost:44305", //odredjujemo koji server je validni izdavalac
+                 ValidIssuer = Configuration["tokenAddress"], //odredjujemo koji server je validni izdavalac
                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))//navodimo privatni kljuc kojim su potpisani nasi tokeni
              };
          });
@@ -109,7 +109,7 @@ namespace ProductService
             {
                 options.AddPolicy(name: _cors, builder =>
                 {
-                    builder.WithOrigins(/*"http://localhost:4200",*/ "https://localhost:44381")
+                    builder.WithOrigins(/*"http://localhost:4200",*/Configuration["CORSAddress"])
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
