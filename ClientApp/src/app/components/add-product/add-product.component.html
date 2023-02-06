@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h2 >Dodaj proizvod</h2>
+            <form [formGroup]="addForm" (ngSubmit)="add()">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Naziv</label>
+                        <input type="text" name="name" id="name" class="form-control" formControlName="name"> 
+                     </div> 
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                    <label for="ingredients" class="form-label">Sastojci</label>
+                    <input type="text" name="ingredients" id="ingredients" class="form-control" formControlName="ingredients">
+                    
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="price" class="form-label">Cena</label>
+                        <input type="number" name="price" id="price" class="form-control" formControlName="price"> 
+                     </div> 
+                </div>
+                <br>
+                <div class="row">
+                    <div  class="text-center">
+                        <button [disabled]="!addForm.valid" class="btn btn-success" type="submit" >Dodaj</button>
+                    </div> 
+                </div>
+            </form>
+        </div>
+        
+        <div class="col-sm-4"></div>
+
+</div>

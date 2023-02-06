@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+<div class="container">  
+    <h3>Nove porudžbine</h3> 
+    <div *ngIf="orders.length != 0">
+    <div *ngFor="let order of orders" style="border-style: double; margin: 10px;">
+        <button style="float: right; margin: 5px;" class="btn btn-success" type="submit" (click)="Preuzmi(order.orderId)">Preuzmi porudzbinu</button>
+        <app-one-order [order]="order"></app-one-order>
+    
+    </div> 
+    <div *ngIf="orders.length==0">
+        <p>Nema porudzbina</p>
+    </div> 
+</div>

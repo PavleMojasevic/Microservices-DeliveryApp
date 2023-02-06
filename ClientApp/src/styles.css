@@ -1,0 +1,18 @@
+
+h3,h5
+{
+    text-align: center;
+    color: darkgreen;
+}
+th
+{
+    color: darkgreen;
+}
+button
+{
+    background-color: darkgreen;
+}
+label
+{
+    width: 90px;
+}

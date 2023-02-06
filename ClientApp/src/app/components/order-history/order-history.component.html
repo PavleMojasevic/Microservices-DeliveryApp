@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+<div class="container">  
+    <h3>Istorija porudzbina</h3> 
+    <div *ngIf="orders.length != 0">
+        <div *ngFor="let order of orders" style="border-style: double; margin: 10px;"> 
+            <app-one-order [order]="order"></app-one-order>
+        
+        </div>  
+    </div>
+    <div *ngIf="orders.length==0">
+        <p>Nema porudzbina</p>
+    </div>
+</div>

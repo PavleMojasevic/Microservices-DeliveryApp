@@ -1,0 +1,373 @@
+{
+
+  "ReRoutes": [
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST"
+      ]
+    },
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/put",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/put",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{id}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/login",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/username/{username}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/username/{username}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/Unactivated",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/Unactivated",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/verifyUser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/verifyUser",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/dismissUser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/dismissUser",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/LoginGoogle",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/LoginGoogle",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/uploadImage",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/uploadImage",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/image",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/image",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/users/imagegoogle",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44305"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/imagegoogle",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order",
+      "UpstreamHttpMethod": [
+        "GET","POST"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order/Undelivered",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order/Undelivered",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order/TakeOrder",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order/TakeOrder",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order/history",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order/history",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order/historyDeliverer",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order/historyDeliverer",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/Order/currentOrder",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Order/currentOrder",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+
+
+    {
+
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44343"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST"
+      ]
+    }
+
+
+
+
+
+
+
+
+
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44381"
+  }
+}

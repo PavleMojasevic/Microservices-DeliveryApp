@@ -1,0 +1,75 @@
+<app-nav></app-nav>
+<div class="container"> 
+    <div *ngIf="order.userId==0">
+    <h3>Nova porudžbina</h3>
+    <form [formGroup]="orderForm" (ngSubmit)="finishOrder()">
+        <table class="table">
+ 
+            <thead>
+                <tr>
+                  <th scope="col">Naziv</th>
+                  <th scope="col">Sastojci</th>
+                  <th scope="col">Cena</th>
+                  <th scope="col">Količina</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of products">
+                    <td scope="row">{{item.name}}</td>
+                    <td scope="row">{{item.ingredients}}</td>
+                    <td scope="row">{{item.price}} RSD</td>
+                    <td scope="row">
+                        <input type="number" name="quantity-{{item.name}}" style="width: 50px;" formControlName="quantity-{{item.name}}"/>
+                    </td>
+                </tr>
+        </tbody>
+        </table>
+        <button style="float: right;" type="submit" class="btn btn-success" width="200px">Završi porudžbinu</button>
+    </form> 
+    </div>
+    <div *ngIf="order.userId!=0">
+        <h3>Lista poručene hrane</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Naziv</th>
+                  <th scope="col">Opis</th>
+                  <th scope="col">Cena</th>
+                  <th scope="col">Količina</th>
+                  <th scope="col">Ukupno</th>
+                </tr> 
+            </thead> 
+            <tbody>
+                <tr *ngFor="let item of order.orderParts"> 
+                    <td scope="row">{{item.product.name}}</td>
+                    <td scope="row">{{item.product.ingredients}}</td>
+                    <td scope="row">{{item.product.price}} RSD</td>
+                    <td scope="row">{{item.quantity}}</td>
+                    <td scope="row">{{item.product.price*item.quantity}} RSD</td>
+                </tr>
+        </tbody>
+        </table>
+        <h5>Cena:{{order.GetValue()+250}}RSD ({{order.GetValue()}}RSD + 250RSD za dostavu)</h5>
+        <h3>Podaci za dostavu</h3>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <form [formGroup]="deliveryForm" (ngSubmit)="placeOrder()">
+                    <label >Adresa</label>
+                    <input type="text" name="address" formControlName="address" style="width:180px" required/>
+                    <br> <br>
+                    <label >Komentar</label>
+                    <textarea rows="3" name="comment" formControlName="comment" style="width:180px"></textarea>
+                    <br> <br>
+                    <div class="row">
+                        <div  class="text-center">
+                            <button type="submit"  class="btn btn-success" >Poruči</button>                       
+                        </div> 
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div> 

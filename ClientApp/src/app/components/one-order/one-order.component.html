@@ -1,0 +1,29 @@
+    Adresa: {{order.address}}
+    <br>
+    Komentar: {{order.comment}}
+    <br>
+    Stanje: {{order.state}} 
+    <br>
+    Vrednost: {{order.Value}} RSD
+    <br>
+    Korisnik: {{order.user.firstname}} {{order.user.lastname}} 
+    <div *ngIf="order.deliveredBy!=0"> 
+        Dostavljac: {{order.dostavljac.firstname}} {{order.dostavljac.lastname}} 
+    </div>
+<table class="table"> 
+    <thead>
+        <tr>
+          <th scope="col">Naziv</th>
+          <th scope="col">Sastojci</th> 
+          <th scope="col">Količina</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of order.orderParts">
+            <td scope="row">{{item.product.name}}</td>
+            <td scope="row">{{item.product.ingredients}}</td>
+            <td scope="row">{{item.quantity}}</td> 
+             
+        </tr>
+</tbody>
+</table> 

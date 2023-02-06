@@ -1,0 +1,9 @@
+<app-nav></app-nav>
+<div *ngIf="finished==false"> 
+<h1>Vreme do isporuke: {{minuti}}:{{sekunde}}</h1> 
+
+<app-one-order [order]="order"></app-one-order>
+</div>
+<div *ngIf="finished==true">
+    <h1>Sve porudzbine su isporucene</h1>
+</div>

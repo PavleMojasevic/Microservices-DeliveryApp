@@ -1,0 +1,8 @@
+<app-nav></app-nav>
+<div class="container">  
+    <h3>Sve porudžbine</h3> 
+    <div *ngFor="let order of orders" style="border-style: double; margin: 10px;"> 
+        <app-one-order [order]="order"></app-one-order>
+    
+    </div>  
+</div>
