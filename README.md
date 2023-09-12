@@ -1,6 +1,6 @@
 # Microservices-DeliveryApp
 
-This is .NET-Angular application for food delivery from one restorant. It contains Angular client app and .NET server side. 
+This is .NET-Angular application for food delivery from one restaurant. It contains Angular client app and .NET server side. 
 
 Server side is devided into three projects: APIGateway, UserService and ProductService.
 
